@@ -39,6 +39,7 @@
             this.getUserTokenButton = new System.Windows.Forms.Button();
             this.userTokeLabel = new System.Windows.Forms.Label();
             this.userTokenTextBox = new System.Windows.Forms.TextBox();
+            this.getVehiclesButton = new System.Windows.Forms.Button();
             this.environmentModeGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -156,11 +157,22 @@
             this.userTokenTextBox.Size = new System.Drawing.Size(334, 20);
             this.userTokenTextBox.TabIndex = 7;
             // 
+            // getVehiclesButton
+            // 
+            this.getVehiclesButton.Location = new System.Drawing.Point(7, 252);
+            this.getVehiclesButton.Name = "getVehiclesButton";
+            this.getVehiclesButton.Size = new System.Drawing.Size(413, 51);
+            this.getVehiclesButton.TabIndex = 8;
+            this.getVehiclesButton.Text = "Get All Vehicles";
+            this.getVehiclesButton.UseVisualStyleBackColor = true;
+            this.getVehiclesButton.Click += new System.EventHandler(this.getVehiclesButton_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(427, 245);
+            this.ClientSize = new System.Drawing.Size(427, 387);
+            this.Controls.Add(this.getVehiclesButton);
             this.Controls.Add(this.userTokenTextBox);
             this.Controls.Add(this.userTokeLabel);
             this.Controls.Add(this.getUserTokenButton);
@@ -193,6 +205,7 @@
         private System.Windows.Forms.Button getUserTokenButton;
         private System.Windows.Forms.Label userTokeLabel;
         private System.Windows.Forms.TextBox userTokenTextBox;
+        private System.Windows.Forms.Button getVehiclesButton;
     }
 }
 
