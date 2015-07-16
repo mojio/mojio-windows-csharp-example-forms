@@ -612,6 +612,13 @@ namespace OAuthExample
                     code.AppendLine("//                                 Transports = Transport.SignalR");
                     code.AppendLine("//                             });");
                     code.AppendLine();
+                    code.AppendLine("// EVENT OBSERVER - IgnitionOn & Ignition Off");
+                    code.AppendLine("//var newObserverResponse = await Client.CreateAsync(new EventObserver(vehicleId, new EventType[] { EventType.IgnitionOn, EventType.IgnitionOff }, ObserverTiming.leading)");
+                    code.AppendLine("//                             {");
+                    code.AppendLine("//                                 Name = observerNameTextBox.Text,");
+                    code.AppendLine("//                                 AppId = ApplicationId,");
+                    code.AppendLine("//                                 Transports = Transport.SignalR");
+                    code.AppendLine("//                             });");
                     code.AppendLine("// GEO FENCE OBSERVER");
                     code.AppendLine("var location = new Location()");
                     code.AppendLine("{");
@@ -666,12 +673,19 @@ namespace OAuthExample
 
                         Client.ObserveHandler += delegate(GuidEntity entity)
                         {
-                            var vehicle = entity as Vehicle;
-                            if (vehicle != null)
+                            if (entity.GetType() == typeof(Vehicle))
                             {
                                 this.Invoke(new Action(() =>
                                 {
-                                    MessageBox.Show(this, vehicle.IdToString, @"Observer Call Back",
+                                    MessageBox.Show(this, entity.IdToString, @"Observer Call Back",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                }));
+                            }
+                            else if (entity.GetType() == typeof (Event))
+                            {
+                                this.Invoke(new Action(() =>
+                                {
+                                    MessageBox.Show(this, entity.IdToString, @"Observer Call Back",
                                         MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 }));
                             }
