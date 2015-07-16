@@ -20,7 +20,8 @@ namespace OAuthExample
         AppId,
         RedirectUrl,
         VehicleId,
-        ObserverId
+        ObserverId,
+        ObserverName
     }
 
     public partial class MainWindow : Form
@@ -76,8 +77,11 @@ namespace OAuthExample
         {
             this.codeWindowRichTextBox.Click += (sender, args) =>
             {
-                Clipboard.SetText(this.codeWindowRichTextBox.Text);
-                MessageBox.Show("Copied to clipboard!");
+                if (this.codeWindowRichTextBox.Text != string.Empty)
+                {
+                    Clipboard.SetText(this.codeWindowRichTextBox.Text);
+                    MessageBox.Show("Copied to clipboard!"); 
+                }
             };
         }
 
@@ -106,33 +110,33 @@ namespace OAuthExample
         /// <summary>
         /// To reset default textbox becomes empty.
         /// </summary>
-        private void ResetDefaultTextBox()
+        private void ResetDefaultTextBox(TextBox clickBoxType)
         {
-            if (appIdTextBox.Text == string.Empty)
+            if (appIdTextBox.Text == string.Empty && clickBoxType != TextBox.AppId)
             {
                 appIdTextBox.Text = APPID_ID_DEFAULT_TEXT;
                 _isDefaultTextAppId = true;
             }
 
-            if (redirecUrlTextBox.Text == string.Empty)
+            if (redirecUrlTextBox.Text == string.Empty && clickBoxType != TextBox.RedirectUrl)
             {
                 redirecUrlTextBox.Text = REDIRECT_URL_DEFAULT_TEXT;
                 _isDefaultTextRedirectUrl = true;
             }
 
-            if (observerNameTextBox.Text == string.Empty)
+            if (observerNameTextBox.Text == string.Empty && clickBoxType != TextBox.ObserverName)
             {
                 observerNameTextBox.Text = OBSERVER_NAME_DEFAULT_TEXT;
                 _isDefaultTextObserverName = true;
             }
 
-            if (vehicleIdTextBox.Text == string.Empty)
+            if (vehicleIdTextBox.Text == string.Empty && clickBoxType != TextBox.VehicleId)
             {
                 vehicleIdTextBox.Text = VEHICLE_ID_DEFAULT_TEXT;
                 _isDefaultTextVehicleId = true;
             }
 
-            if (observerIdTextBox.Text == string.Empty)
+            if (observerIdTextBox.Text == string.Empty && clickBoxType != TextBox.ObserverId)
             {
                 observerIdTextBox.Text = OBSERVER_ID_DEFAULT_TEXT;
                 _isDefaultTextObserverId = true;
@@ -156,10 +160,7 @@ namespace OAuthExample
                 _isDefaultTextAppId = false;
                 appIdTextBox.Text = string.Empty;
             }
-            else
-            {
-                ResetDefaultTextBox();
-            }
+            ResetDefaultTextBox(TextBox.AppId);
         }
 
         /// <summary>
@@ -174,10 +175,7 @@ namespace OAuthExample
                 _isDefaultTextRedirectUrl = false;
                 redirecUrlTextBox.Text = string.Empty;
             }
-            else
-            {
-                ResetDefaultTextBox();
-            }
+            ResetDefaultTextBox(TextBox.RedirectUrl);
         }
 
         private void observerNameTextBox_Click(object sender, EventArgs e)
@@ -187,10 +185,8 @@ namespace OAuthExample
                 observerNameTextBox.Text = string.Empty;
                 _isDefaultTextObserverName = false;
             }
-            else
-            {
-                ResetDefaultTextBox();
-            }
+            ResetDefaultTextBox(TextBox.ObserverName);
+            
         }
 
         private void vehicleIdTextBox_Click(object sender, EventArgs e)
@@ -200,10 +196,7 @@ namespace OAuthExample
                 vehicleIdTextBox.Text = string.Empty;
                 _isDefaultTextVehicleId = false;
             }
-            else
-            {
-                ResetDefaultTextBox();
-            }
+            ResetDefaultTextBox(TextBox.VehicleId);
         }
 
         private void ObserverIdTextBox_Click(object sender, EventArgs e)
@@ -213,10 +206,7 @@ namespace OAuthExample
                 observerIdTextBox.Text = string.Empty;
                 _isDefaultTextObserverId = false;
             }
-            else
-            {
-                ResetDefaultTextBox();
-            }
+            ResetDefaultTextBox(TextBox.ObserverId);
         }
 
         /// <summary>
