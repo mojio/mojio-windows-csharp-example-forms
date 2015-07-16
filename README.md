@@ -13,4 +13,4 @@
 8. Unobserve events
 9. Deleting observer
 
-Feel free to email me for any feature request.
+Feel free to email me (kennethw(.a.t)moj.io) for any feature request.
