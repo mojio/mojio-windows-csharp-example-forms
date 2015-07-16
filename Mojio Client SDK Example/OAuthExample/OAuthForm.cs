@@ -619,6 +619,7 @@ namespace OAuthExample
                     code.AppendLine("//                                 AppId = ApplicationId,");
                     code.AppendLine("//                                 Transports = Transport.SignalR");
                     code.AppendLine("//                             });");
+                    code.AppendLine();
                     code.AppendLine("// GEO FENCE OBSERVER");
                     code.AppendLine("var location = new Location()");
                     code.AppendLine("{");
