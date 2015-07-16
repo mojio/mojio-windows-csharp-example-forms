@@ -12,3 +12,5 @@
 7. Setting (Geo Fence) observer
 8. Unobserve events
 9. Deleting observer
+
+Feel free to email me for any feature request.
