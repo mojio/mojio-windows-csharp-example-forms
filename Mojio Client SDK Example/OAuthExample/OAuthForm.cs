@@ -544,7 +544,10 @@ namespace OAuthExample
                         _consoleWindow.DisplayObservers(observers.Data);
                         foreach (var obs in observers.Data)
                         {
-                            _observerDictionary.Add(obs.Id, obs);
+                            if (!_observerDictionary.ContainsKey(obs.Id))
+                            {
+                                _observerDictionary.Add(obs.Id, obs);
+                            }
                         }
                     }
                     else
