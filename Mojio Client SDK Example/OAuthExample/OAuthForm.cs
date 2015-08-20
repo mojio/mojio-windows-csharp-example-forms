@@ -604,72 +604,21 @@ namespace OAuthExample
                     var console = new StringBuilder();
                     code.AppendLine("// GENERIC OBSERVER");
                     code.AppendLine("//var newObserverResponse = await Client.CreateAsync(new Observer(ObserverType.Generic)");
-                    code.AppendLine("//               {");
-                    code.AppendLine("//                  Name = observerNameTextBox.Text,");
-                    code.AppendLine("//                  AppId = ApplicationId,");
-                    code.AppendLine("//                  Subject = \"Vehicle\",");
-                    code.AppendLine("//                  SubjectId = vehicleId,");
-                    code.AppendLine("//                  Transports = Transport.SignalR");
-                    code.AppendLine("//               });");
+                    code.AppendLine("//                             {");
+                    code.AppendLine("//                                 Name = observerNameTextBox.Text,");
+                    code.AppendLine("//                                 AppId = ApplicationId,");
+                    code.AppendLine("//                                 Subject = \"Vehicle\",");
+                    code.AppendLine("//                                 SubjectId = vehicleId,");
+                    code.AppendLine("//                                 Transports = Transport.SignalR");
+                    code.AppendLine("//                             });");
                     code.AppendLine();
                     code.AppendLine("// EVENT OBSERVER - IgnitionOn & Ignition Off");
                     code.AppendLine("//var newObserverResponse = await Client.CreateAsync(new EventObserver(vehicleId, new EventType[] { EventType.IgnitionOn, EventType.IgnitionOff }, ObserverTiming.leading)");
-                    code.AppendLine("//               {");
-                    code.AppendLine("//                  Name = observerNameTextBox.Text,");
-                    code.AppendLine("//                  AppId = ApplicationId,");
-                    code.AppendLine("//                  Transports = Transport.SignalR");
-                    code.AppendLine("//               });");
-                    code.AppendLine();
-                    code.AppendLine("// Low Fuel Observer");
-                    code.AppendLine("//var newObserverResponse = await Client.CreateAsync(new FuelLevelObserver(VehicleId, 15, null, ObserverTiming.high)");
-                    code.AppendLine("//              {");
-                    code.AppendLine("//                  Name = observerNameTextBox.Text,");
-                    code.AppendLine("//                  AppId = ApplicationId,");
-                    code.AppendLine("//                  Subject = \"Vehicle\",");
-                    code.AppendLine("//                  Transports = Transport.SignalR");
-                    code.AppendLine("//              });");
-                    code.AppendLine();
-                    code.AppendLine("// Mil Status observer");
-                    code.AppendLine("//var newObserverResponse = await Client.CreateAsync(new BooleanFieldObserver(typeof(Vehicle), vehicleId, \"MilStatus\")");
-                    code.AppendLine("//              {");
-                    code.AppendLine("//                  ConditionValue = true,");
-                    code.AppendLine("//                  Name = observerIdTextBox.Text,");
-                    code.AppendLine("//                  AppId = ApplicationId,");
-                    code.AppendLine("//                  Transports = Transport.SignalR");
-                    code.AppendLine("//              });");
-                    code.AppendLine();
-                    code.AppendLine("// Tow event");
-                    code.AppendLine("//var newObserverResponse = await Client.CreateAsync(new EventObserver(vehicleId, new[] { EventType.TowStart, EventType.TowStop }, ObserverTiming.leading)");
-                    code.AppendLine("//              {");
-                    code.AppendLine("//                  Name = observerNameTextBox.Text,");
-                    code.AppendLine("//                  AppId = ApplicationId,");
-                    code.AppendLine("//                  Transports = Transport.SignalR");
-                    code.AppendLine("//              });");
-                    code.AppendLine();
-                    code.AppendLine("// Diagnostic event observer 1 - Specific Diagnostic Code");
-                    code.AppendLine("//var newObserverResponse = await Client.CreateAsync(new DiagnosticCodeObserver(vehicleId, true, new []{\"P205\"})");
-                    code.AppendLine("//              {");
-                    code.AppendLine("//                  Name = observerNameTextBox.Text,");
-                    code.AppendLine("//                  AppId = ApplicationId,");
-                    code.AppendLine("//                  Transports = Transport.SignalR");
-                    code.AppendLine("//              });");
-                    code.AppendLine();
-                    code.AppendLine("// Diagnostic event observer 2 - All Diagnostic Code");
-                    code.AppendLine("//var newObserverResponse = await Client.CreateAsync(new EventObserver(vehicleId, new[] { EventType.Diagnostic }, ObserverTiming.edge)");
-                    code.AppendLine("//              {");
-                    code.AppendLine("//                  Name = observerNameTextBox.Text,");
-                    code.AppendLine("//                  AppId = ApplicationId,");
-                    code.AppendLine("//                  Transports = Transport.SignalR");
-                    code.AppendLine("//              });");
-                    code.AppendLine();
-                    code.AppendLine("// Diagnostic event observer 3 - All Diagnostic Code");
-                    code.AppendLine("//var newObserverResponse = await Client.CreateAsync(new BooleanFieldObserver(typeof(Vehicle), vehicleId, \"FaultsDetected\")");
-                    code.AppendLine("//              {");
-                    code.AppendLine("//                  ConditionValue = true,");
-                    code.AppendLine("//                  Name = observerNameTextBox.Text,");
-                    code.AppendLine("//                  AppId = ApplicationId,");
-                    code.AppendLine("//                  Transports = Transport.SignalR");
-                    code.AppendLine("//              });");
+                    code.AppendLine("//                             {");
+                    code.AppendLine("//                                 Name = observerNameTextBox.Text,");
+                    code.AppendLine("//                                 AppId = ApplicationId,");
+                    code.AppendLine("//                                 Transports = Transport.SignalR");
+                    code.AppendLine("//                             });");
                     code.AppendLine();
                     code.AppendLine("// GEO FENCE OBSERVER");
                     code.AppendLine("var location = new Location()");
@@ -697,65 +646,6 @@ namespace OAuthExample
                     code.AppendLine("   };");
                     code.AppendLine("}");
 
-                    // Low Fuel Observer
-                    //var newObserverResponse = await Client.CreateAsync(new FuelLevelObserver(vehicleId, 15, null, ObserverTiming.high)
-                    //{
-                    //    Name = observerNameTextBox.Text,
-                    //    AppId = ApplicationId,
-                    //    Subject = "Vehicle",
-                    //    Transports = Transport.SignalR
-                    //});
-
-                    // EVENT OBSERVER - IgnitionOn & Ignition Off
-                    //var newObserverResponse = await Client.CreateAsync(new EventObserver(vehicleId, new [] { EventType.IgnitionOn, EventType.IgnitionOff })
-                    //  {
-                    //    Name = observerNameTextBox.Text,
-                    //    AppId = ApplicationId,
-                    //    Transports = Transport.SignalR
-                    //  });
-
-                    // Mil Status observer
-                    //var newObserverResponse = await Client.CreateAsync(new BooleanFieldObserver(typeof(Vehicle), vehicleId, "MilStatus")
-                    //{
-                    //    ConditionValue = true,
-                    //    Name = observerIdTextBox.Text,
-                    //    AppId = ApplicationId,
-                    //    Transports = Transport.SignalR
-                    //});
-
-                    // Tow event
-                    //var newObserverResponse = await Client.CreateAsync(new EventObserver(vehicleId, new[] { EventType.TowStart, EventType.TowStop }, ObserverTiming.leading)
-                    //{
-                    //    Name = observerNameTextBox.Text,
-                    //    AppId = ApplicationId,
-                    //    Transports = Transport.SignalR
-                    //});
-
-                    // Diagnostic event 1 - Specific Diagnostic Code
-                    //var newObserverResponse = await Client.CreateAsync(new DiagnosticCodeObserver(vehicleId, true, new []{"P205"})
-                    //{
-                    //    Name = observerNameTextBox.Text,
-                    //    AppId = ApplicationId,
-                    //    Transports = Transport.SignalR
-                    //});
-
-                    // Diagnostic event 2 - All Diagnostic Code
-                    //var newObserverResponse = await Client.CreateAsync(new EventObserver(vehicleId, new[] { EventType.Diagnostic }, ObserverTiming.edge)
-                    //{
-                    //    Name = observerNameTextBox.Text,
-                    //    AppId = ApplicationId,
-                    //    Transports = Transport.SignalR
-                    //});
-
-                    // Diagnostic event 3 - All Diagnostic Code
-                    //var newObserverResponse = await Client.CreateAsync(new BooleanFieldObserver(typeof(Vehicle), vehicleId, "FaultsDetected")
-                    //{
-                    //    ConditionValue = true,
-                    //    Name = observerNameTextBox.Text,
-                    //    AppId = ApplicationId,
-                    //    Transports = Transport.SignalR
-                    //});
-
                     // GEO FENCE OBSERVER
                     var location = new Location()
                     {
@@ -769,15 +659,6 @@ namespace OAuthExample
                         Subject = "Vehicle",
                         Transports = Transport.SignalR
                     });
-
-                    // Harsh Acceleration - DOES NOT WORK
-                    //var newObserverResponse = await Client.CreateAsync(new AccelerationObserver(vehicleId, 20, 40, ObserverTiming.leading)
-                    //{
-                    //    Name = observerNameTextBox.Text,
-                    //    AppId = ApplicationId,
-                    //    Subject = "Vehicle",
-                    //    Transports = Transport.SignalR
-                    //});
 
                     var observer = newObserverResponse.Data;
                     var status = newObserverResponse.StatusCode;
